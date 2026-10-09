@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // Regenerates skills/ and agents/ from an upstream pstack checkout.
 // Usage: node scripts/sync.mjs [path/to/plugins/pstack]
+// Source: the argument, else $PSTACK_SRC, else a shallow clone of
+// https://github.com/cursor/plugins in the OS temp dir.
 import { execFileSync } from "node:child_process";
 import * as fs from "node:fs";
 import * as os from "node:os";
@@ -8,7 +10,19 @@ import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const src = path.resolve(process.argv[2] ?? path.join(os.homedir(), "Code/opensource/plugins/pstack"));
+const UPSTREAM = "https://github.com/cursor/plugins.git";
+
+function upstreamCheckout() {
+	const dir = path.join(os.tmpdir(), "pstack-upstream");
+	if (fs.existsSync(path.join(dir, ".git"))) {
+		execFileSync("git", ["-C", dir, "pull", "--ff-only", "--quiet"], { stdio: "inherit" });
+	} else {
+		execFileSync("git", ["clone", "--depth", "1", "--quiet", UPSTREAM, dir], { stdio: "inherit" });
+	}
+	return path.join(dir, "pstack");
+}
+
+const src = path.resolve(process.argv[2] ?? process.env.PSTACK_SRC ?? upstreamCheckout());
 if (!fs.existsSync(path.join(src, "skills", "poteto-mode", "SKILL.md"))) {
 	console.error(`not a pstack checkout: ${src}`);
 	process.exit(1);
