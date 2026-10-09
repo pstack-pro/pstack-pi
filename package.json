@@ -1,0 +1,28 @@
+{
+  "name": "pi-pstack",
+  "version": "0.1.0",
+  "private": true,
+  "description": "pstack (poteto's rigorous agent workflows) adapted for the pi coding agent",
+  "type": "module",
+  "keywords": [
+    "pi-package"
+  ],
+  "license": "MIT",
+  "pi": {
+    "extensions": [
+      "./extensions/pstack/index.ts"
+    ],
+    "skills": [
+      "./skills"
+    ]
+  },
+  "scripts": {
+    "sync": "node scripts/sync.mjs",
+    "test": "test/run.sh"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "typebox": "*"
+  }
+}
