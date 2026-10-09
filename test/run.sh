@@ -34,6 +34,10 @@ check() {
 	echo "ok   $name"; pass=$((pass + 1))
 }
 
+names="$(ls "$PKG/skills" | paste -sd'|' -)"
+cmd_left="$(grep -rnoE "(^|[[:space:]\`(\"'])/($names)([^a-zA-Z0-9/_-]|$)" "$PKG/skills" "$PKG/agents" --include='*.md' || true)"
+if [ -z "$cmd_left" ]; then echo "ok   slash commands use /skill: prefix"; pass=$((pass + 1)); else echo "FAIL unprefixed slash commands"; echo "$cmd_left" | head -5; fail=$((fail + 1)); fi
+
 check prompt "$(run TEST_PROMPT)" "pstack=true" "models=false" "Task" "Await" "AskQuestion" "PstackModels"
 
 mkdir -p "$WORK/proj/.pi"
