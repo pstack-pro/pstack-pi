@@ -9,35 +9,7 @@ Write `.pi/pstack-models.md` in the project root. The pstack extension reads it 
 
 ## Presets
 
-Check these in order and propose the first whose models are all detected and pass the smoke test. A preset is a starting proposal, not a lock: the user can change any role in step 3 (d). When the user's request already names models or rules, those win over the preset.
-
-### mimo-deepseek
-
-Needs `xiaomi/mimo-v2.6-pro`, `xiaomi/mimo-v2.6-flash`, `deepseek/deepseek-flash`, `deepseek/deepseek-v4-pro`. Judgment goes to the cheaper strong model, code to DeepSeek V4.1 Flash, the expensive Pro only to the hardest tasks, and panels mix both families.
-
-```
-feature, refactoring: deepseek/deepseek-flash
-bug-fix: deepseek/deepseek-flash
-perf-issue: deepseek/deepseek-flash
-hillclimb: deepseek/deepseek-flash
-judgment and prose: xiaomi/mimo-v2.6-pro
-hardest tasks: deepseek/deepseek-v4-pro
-how explorer: deepseek/deepseek-flash
-how explainer: xiaomi/mimo-v2.6-pro
-why investigators: deepseek/deepseek-flash
-why synthesizer: xiaomi/mimo-v2.6-pro
-reflect tooling: deepseek/deepseek-flash
-reflect judgment, divergent, synthesizer: xiaomi/mimo-v2.6-pro
-arena runners: xiaomi/mimo-v2.6-pro, deepseek/deepseek-flash, xiaomi/mimo-v2.6-flash
-arena cross-judge pool: xiaomi/mimo-v2.6-pro, deepseek/deepseek-flash, xiaomi/mimo-v2.6-flash
-swarm workers: deepseek/deepseek-flash
-architect runners: xiaomi/mimo-v2.6-pro, deepseek/deepseek-flash, xiaomi/mimo-v2.6-flash
-interrogate reviewers: xiaomi/mimo-v2.6-pro, deepseek/deepseek-flash, xiaomi/mimo-v2.6-flash
-```
-
-If only part of a preset is available (for example `deepseek-v4-pro` fails), keep the preset and remap only the missing model's roles with the cost rules below, and say which roles moved.
-
-With no matching preset, build the mapping from step 3 (b).
+This port ships **no named presets** (same as upstream). Map roles from detected models with the cost rules in step 3 (b). When the user already names models or rules, those win. To add your own preset later, add a subsection under this heading.
 
 ## Cost rules
 

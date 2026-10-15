@@ -52,9 +52,9 @@ pi install -l <任意目录>
 
 `setup-pstack` 的分配规则：
 
-- **推荐方案**：内置一个 `mimo-deepseek` 方案，**只有**同时检测到 `xiaomi/mimo-v2.6-*` 和 `deepseek/deepseek-*` 时才会推荐。判断类角色用 `mimo-v2.6-pro`，写代码用 `deepseek-flash`，`deepseek-v4-pro` 只给 hardest tasks。
+- **默认映射**：不内置命名预设，与上游一致。按成本规则从已检测模型里填三个槽位（判断 / 写代码 / 另一家族）。确认那一步仍可改任意角色。要加自家预设，编辑 `overrides/skills/setup-pstack/SKILL.md` 的「Presets」节。
 - **其他情况**：按成本规则自动分配。同等能力选更便宜的；不用 ultraspeed 这类加价的高速版本；最贵的模型只给 hardest tasks。
-- 两种情况下，你都可以在确认那一步修改任何角色。想加自己的推荐方案，在 `overrides/skills/setup-pstack/SKILL.md` 里照着 `mimo-deepseek` 的写法添加。
+- **默认映射**：不内置命名预设，与上游一致。按成本规则从已检测模型里填三个槽位（判断 / 写代码 / 另一家族）。确认那一步仍可改任意角色。要加自家预设，编辑 `overrides/skills/setup-pstack/SKILL.md` 的「Presets」节。
 
 不跑 setup 也能用：skill 里写的默认模型（如 `grok-4.7-xhigh-fast`）如果 pi 跑不了，`Task` 会退回父会话的模型，并在结果的 `note` 里说明。
 
