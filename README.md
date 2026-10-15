@@ -25,19 +25,19 @@ pstack 的 skill 是照着 Cursor 的工具写的。这个 package 没有逐个�
 
 ```bash
 # 只在当前项目启用（写入 .pi/settings.json；首次运行 pi 时需要信任该项目）
-pi install -l git:github.com/taokeqin/pstack-pi
+pi install -l git:github.com/pstack-pro/pstack-pi
 
 # 只试一次，不写任何配置
-pi -e git:github.com/taokeqin/pstack-pi
+pi -e git:github.com/pstack-pro/pstack-pi
 
 # 从当前项目卸载
-pi remove -l --approve git:github.com/taokeqin/pstack-pi
+pi remove -l --approve git:github.com/pstack-pro/pstack-pi
 ```
 
 想改代码或固定在本地某个版本时，可以 clone 到任意目录，然后用本地路径安装：
 
 ```bash
-git clone https://github.com/taokeqin/pstack-pi.git <任意目录>
+git clone https://github.com/pstack-pro/pstack-pi.git <任意目录>
 pi install -l <任意目录>
 ```
 
@@ -86,6 +86,6 @@ pstack 原作者 Lauren Tan，MIT 许可，见 `LICENSE-pstack`。
 
 ## 相关仓库
 
-- 中文版（skill 描述与正文已译成中文，预览）：<https://github.com/taokeqin/pstack-pi-zh>
-- 另一个移植：<https://github.com/taokeqin/pstack-claude>
+- 中文版（skill 描述与正文已译成中文，预览）：<https://github.com/pstack-pro/pstack-pi-zh>
+- 另一个移植：<https://github.com/pstack-pro/pstack-claude>
 - 上游 pstack：<https://github.com/cursor/plugins/tree/main/pstack>

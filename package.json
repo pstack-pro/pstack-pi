@@ -25,9 +25,9 @@
     "@earendil-works/pi-tui": "*",
     "typebox": "*"
   },
-  "homepage": "https://github.com/taokeqin/pstack-pi",
+  "homepage": "https://github.com/pstack-pro/pstack-pi",
   "repository": {
     "type": "git",
-    "url": "https://github.com/taokeqin/pstack-pi.git"
+    "url": "https://github.com/pstack-pro/pstack-pi.git"
   }
 }
