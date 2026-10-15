@@ -21,7 +21,7 @@ const ADAPTATION_NOTES = `You are running pstack on pi, not Cursor. Where a psta
 - Cursor built-ins (\`create-skill\`, \`/loop\`, its babysit skill, Plan Mode, automations, the cloud dashboard) do not exist. Follow the pstack playbook directly. For a wake loop, run a background \`Task\` watcher or tell the user to schedule \`pi -p\` externally.
 - pi has no todo tool. Keep the playbook todolist as a markdown checklist in your messages. Never write a TODO file outside the project.
 - Skills from other Cursor plugins (\`/deslop\` from cursor-team-kit, \`create-skill\`) are not installed and need no search. In place of \`/deslop\`, review the diff yourself for slop and run the \`no-comments\` skill.
-- "agent-transcripts" means pi session files (JSONL). Sessions live under \`~/.pi/agent/sessions/<cwd slug>/\`; subagent sessions live under the OS temp dir in \`pi-pstack-sessions/\`.`;
+- "agent-transcripts" means pi session files (JSONL). Sessions live under \`~/.pi/agent/sessions/<cwd slug>/\`; subagent sessions live under the OS temp dir in \`pstack-pi-sessions/\`.`;
 
 const TaskParams = Type.Object({
 	description: Type.String({ description: "Short (3-5 word) label for the task" }),

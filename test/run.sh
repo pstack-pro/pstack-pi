@@ -4,7 +4,7 @@
 set -uo pipefail
 
 PKG="$(cd "$(dirname "$0")/.." && pwd)"
-WORK="$(mktemp -d "${TMPDIR:-/tmp}/pi-pstack-test.XXXXXX")"
+WORK="$(mktemp -d "${TMPDIR:-/tmp}/pstack-pi-test.XXXXXX")"
 PORT="${PORT:-18765}"
 export PI_CODING_AGENT_DIR="$WORK/agent" PI_OFFLINE=1
 mkdir -p "$PI_CODING_AGENT_DIR" "$WORK/proj"

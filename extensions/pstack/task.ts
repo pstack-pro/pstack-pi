@@ -13,7 +13,7 @@ const PARENT_ALIASES = new Set(["inherit-parent", "auto", "inherit", ""]);
 const EFFORTS = ["max", "xhigh", "high", "medium", "low", "minimal", "off"];
 
 export const depth = Number(process.env.PSTACK_DEPTH ?? "0") || 0;
-const sessionDir = path.join(os.tmpdir(), "pi-pstack-sessions");
+const sessionDir = path.join(os.tmpdir(), "pstack-pi-sessions");
 
 export interface TaskRun {
 	id: string;
@@ -149,7 +149,7 @@ async function execute(run: TaskRun, opts: StartOptions, signal: AbortSignal): P
 
 	let promptFile: string | undefined;
 	if (run.agent.systemPrompt.trim()) {
-		promptFile = path.join(os.tmpdir(), `pi-pstack-${run.id}.md`);
+		promptFile = path.join(os.tmpdir(), `pstack-pi-${run.id}.md`);
 		fs.writeFileSync(promptFile, run.agent.systemPrompt, { mode: 0o600 });
 		args.push("--append-system-prompt", promptFile);
 	}
