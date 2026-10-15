@@ -1,6 +1,6 @@
 ---
 name: setup-pstack
-description: Configure which models pstack uses per role and at what reasoning budget, for this project only. Detects the models pi can run with their prices, proposes a cost-aware preset, and writes .pi/pstack-models.md, which the pstack extension injects into every prompt. Use for /skill:setup-pstack, "configure pstack models", "pstack budget", or changing pstack's model choices.
+description: Configure which models pstack uses per role and at what reasoning budget, for this project only. Detects the models pi can run with their prices, maps roles by cost rules (no named presets), and writes .pi/pstack-models.md, which the pstack extension injects into every prompt. Use for /skill:setup-pstack, "configure pstack models", "pstack budget", or changing pstack's model choices.
 ---
 
 # Setup pstack (pi)
